@@ -8,6 +8,7 @@ import {
 } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
+import { resolveUrl } from '@utils/helpers';
 ---
 
 <Layout>
@@ -19,7 +20,7 @@ import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astr
 
 		<picture slot="image-container">
 			<img
-				src="assets/images/one_scale,w_1400.jpg"
+				src={resolveUrl('/assets/images/one_scale,w_1400.jpg')}
 				alt="Meadow Walk Housing"
 				id="home-hero-image"
 			/>

@@ -20,3 +20,10 @@ export function generateTagData(categories) {
 	});
 	return categoryData;
 }
+
+export function resolveUrl(path) {
+	if (import.meta.env.PROD) {
+		return `${import.meta.env.BASE_URL}${path}`;
+	}
+	return path;
+}

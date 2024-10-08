@@ -5,18 +5,18 @@ export const nav = [
 	},
 	{
 		title: 'About Us',
-		slug: 'about',
+		slug: '/about',
 	},
 	{
 		title: 'Applications',
-		slug: 'applications',
+		slug: '/applications',
 	},
 	{
 		title: 'Units',
-		slug: 'units',
+		slug: '/units',
 	},
 	{
 		title: 'Contact',
-		slug: 'contact',
+		slug: '/contact',
 	},
 ];

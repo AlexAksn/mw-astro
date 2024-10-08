@@ -1,3 +1,7 @@
+---
+import { resolveUrl } from '@utils/helpers';
+---
+
 <section class="core-principles">
 	<div class="core-principles-section">
 		<h2 class="section-title">Core Principles</h2>
@@ -26,7 +30,7 @@
 
 	<div class="our-federation">
 		<h2>Our Federation</h2>
-		<img src="assets/images/CHF-BC-logo.jpg" alt="CHF BC Logo" />
+		<img src={resolveUrl('/assets/images/CHF-BC-logo.jpg')} alt="CHF BC Logo" />
 		<p>
 			The Co-operative Housing Federation of BC (CHF BC) is a co-operative
 			association whose members are housing co-ops and related organizations in

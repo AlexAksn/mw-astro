@@ -5,6 +5,7 @@ import {
 	YouTubeEmbed,
 } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
+import { resolveUrl } from '@utils/helpers';
 ---
 
 <Layout>
@@ -36,7 +37,7 @@ import Layout from '../layouts/Page.astro';
 					</p>
 				</div>
 				<img
-					src="assets/images/two_scale,w_1400.jpg"
+					src={resolveUrl('/assets/images/two_scale,w_1400.jpg')}
 					alt="Meadow Walk Housing"
 				/>
 			</article>
