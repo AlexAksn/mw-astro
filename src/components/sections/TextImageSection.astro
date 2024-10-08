@@ -1,0 +1,60 @@
+---
+import Container from '@components/core/Container.astro';
+---
+
+<section class="section-container">
+	<slot name="image-container" />
+	<div class="section-content">
+		<slot />
+	</div>
+</section>
+
+<style>
+	/* Container for the section */
+	.section-container {
+		display: flex;
+		align-items: center;
+		padding: 40px 20px;
+	}
+
+	/* Image Styling */
+	.section-container :global(img) {
+		width: 40%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		margin-right: 20px;
+	}
+
+	/* Content Styling */
+	.section-content {
+		width: 60%;
+		text-align: left;
+	}
+
+	.section-content :global(h2) {
+		margin-bottom: 20px;
+	}
+	.section-content :global(p) {
+		font-size: 0.8rem;
+	}
+
+	/* Mobile responsiveness */
+	@media (max-width: 768px) {
+		.section-container {
+			flex-direction: column;
+			padding: 20px;
+		}
+
+		.section-container :global(img) {
+			width: 100%;
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+
+		.section-content {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

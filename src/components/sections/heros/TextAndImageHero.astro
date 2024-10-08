@@ -27,7 +27,7 @@ const { reversed } = Astro.props;
 		margin: var(--section-margin) auto;
 		min-height: clamp(90vh, 100vw, calc(100vh - var(--navbar-height)));
 		display: grid;
-		grid-template-columns: 2fr 3fr;
+		grid-template-columns: 1fr 1fr;
 		align-items: center;
 		gap: 1rem;
 	}
@@ -45,6 +45,7 @@ const { reversed } = Astro.props;
 		max-height: 80vh;
 		object-fit: cover;
 		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
 	@media (max-width: 768px) {
 		.text-and-image__section {

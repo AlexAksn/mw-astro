@@ -1,0 +1,107 @@
+---
+import {
+	Container,
+	MembersRights,
+	YouTubeEmbed,
+} from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+---
+
+<Layout>
+	<Container>
+		<section class="about-section">
+			<article>
+				<div class="text">
+					<h2>Our Community</h2>
+					<blockquote>
+						Meadow Walk Housing Co-op is situated in Central Richmond, British
+						Columbia, and comprises 63 residences, including 24 townhouses and
+						39 apartments. Our townhouses feature either 2 or 3 levels, while
+						our apartments range from 1 to 3 bedrooms.
+					</blockquote>
+					<p>
+						As a cooperative community, we collaboratively manage our housing.
+						Members are encouraged to contribute a small amount of time each
+						month through participation and volunteering. This engagement
+						fosters community bonds and helps keep housing charges lower.
+					</p>
+					<p>
+						As a member, you have a voice in decisions that impact both your
+						home and your neighbors. In addition to your responsibilities, you
+						enjoy security of tenure, meaning you can reside in the co- op for
+						as long as you wish, provided you adhere to the co-op's rules and
+						pay your housing charges. Together with your neighbors, you
+						collectively own your homes. Our diverse and vibrant membership is a
+						unique strength that enriches our community.
+					</p>
+				</div>
+				<img
+					src="assets/images/two_scale,w_1400.jpg"
+					alt="Meadow Walk Housing"
+				/>
+			</article>
+			<article class="reverse">
+				<div class="text">
+					<h2>What is a Housing Co-op?</h2>
+					<blockquote>
+						Housing cooperatives (co-ops) foster diverse communities comprising
+						individuals from various backgrounds, income levels, and family
+						structures.
+					</blockquote>
+					<p>
+						In a co-op, all members collectively own the organization, which in
+						turn owns the housing itself. Upon joining, each member is required
+						to purchase a "share" in the co-op.
+					</p>
+					<p>
+						Every member possesses a vote that enables them to influence
+						policies, make decisions, and elect leaders responsible for managing
+						daily operations and reporting back to the members.
+					</p>
+				</div>
+				<section class="youtube-embed__section">
+					<YouTubeEmbed
+						url="https://www.youtube.com/watch?v=kWfbLPmOeTs"
+						rounded
+					/>
+				</section>
+			</article>
+		</section>
+		<MembersRights />
+	</Container>
+</Layout>
+
+<style>
+	.about-section {
+		padding: 4rem 1rem 0 1rem;
+	}
+	.about-section article {
+		margin-bottom: 4rem;
+	}
+	.about-section h2 {
+		font-size: 2rem;
+		margin-bottom: calc(2rem * 1.5);
+	}
+	.about-section img {
+		margin: 2rem 0 4rem 0;
+		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+	.about-section p {
+		font-size: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.about-section article {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+		.text {
+			text-align: left;
+		}
+		.about-section .reverse .text {
+			order: 2;
+		}
+	}
+</style>

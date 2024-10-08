@@ -1,73 +1,59 @@
 ---
 import { Icon } from 'astro-icon/components';
 import {
-	AnnouncementBar,
 	Button,
 	CustomerQuoteSection,
 	ThreeColumnTextSection,
-	YouTubeEmbedSection,
-	StickyTextImageSection,
 	CtaCardSection,
 } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
 ---
 
-<AnnouncementBar
-	text="Read Our Latest Blog Post"
-	href="./blog/posts/remote-work-mental-health"
-	slot="announcement-bar"
-/>
 <Layout>
 	<TextAndImageHero>
 		<div slot="text-container">
 			<h1>Welcome to Meadow Walk Housing</h1>
 			<p>Comfortable living in a vibrant community.</p>
 		</div>
-		<div slot="btns-container">
-			<Button href="theme/get-started" customIcon
-				>Get Started <Fragment slot="icon">
-					<Icon name="ic:baseline-chevron-right" />
-				</Fragment></Button
-			>
-		</div>
+
 		<picture slot="image-container">
 			<img
-				src="./assets/images/landing-1/one_scale,w_1400.jpg"
-				alt="Astro Odyssee"
+				src="assets/images/one_scale,w_1400.jpg"
+				alt="Meadow Walk Housing"
 				id="home-hero-image"
 			/>
 		</picture>
 	</TextAndImageHero>
 
 	<CustomerQuoteSection
-		quoteText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, vero nobis? Voluptas assumenda, voluptatibus commodi qui ducimus delectus praesentium maiores, impedit iure labore ratione, ea facilis numquam doloremque aperiam aspernatur."
-		customerName="Happy Customer"
+		quoteText="Anyone who knows housing co-ops will tell you that they are much more than bricks-and-mortar or a roof over your head. Housing co-ops are made up of people who form a close bond of association and work together to provide safe, secure and affordable homes for their members."
+		customerName="CHF BC"
 	/>
 
 	<ThreeColumnTextSection>
 		<div slot="column-1-body">
-			<h2>Why?</h2>
+			<h2>About Co-op?</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Even though many people are members of co-operatives (like credit
+				unions, or Modo, the Cooperators or Peninsula Co-op), co-ops—and
+				especially housing co-ops—are less familiar than limited companies and
+				charities.
 			</p>
 		</div>
 		<Button slot="column-1-cta">Learn More</Button>
 		<div slot="column-2-body">
-			<h2>How?</h2>
+			<h2>Our Community</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Meadow Walk Housing Co-op is situated in Central Richmond, British
+				Columbia, and comprises 63 residences, including 24 townhouses and 39
+				apartments. Our townhouses feature either 2 or 3 levels, while our
+				apartments range from 1 to 3 bedrooms.
 			</p>
 		</div>
-		<Button slot="column-2-cta" outlined>Learn More</Button>
+		<Button slot="column-2-cta">Learn More</Button>
 		<div slot="column-3-body">
-			<h2>What?</h2>
+			<h2>Applications</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
 				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
@@ -78,53 +64,19 @@ import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astr
 		<Button slot="column-3-cta">Learn More</Button>
 	</ThreeColumnTextSection>
 
-	<YouTubeEmbedSection
-		url="https://www.youtube.com/watch?v=cbYr75_R15M"
+	<!-- <YouTubeEmbedSection
+		url="https://www.youtube.com/watch?v=kWfbLPmOeTs"
 		rounded
-	/>
-
-	<StickyTextImageSection>
-		<div slot="text-container">
-			<h2>Features</h2>
-			<h3>SEO</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
-			</p>
-			<h3>Responsive</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
-			</p>
-			<h3>Themeable</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
-			</p>
-		</div>
-		<picture slot="image-container">
-			<img
-				src="assets/images/landing-1/landing-sticky.jpg"
-				alt="Astro Odyssey"
-				loading="lazy"
-			/>
-		</picture>
-	</StickyTextImageSection>
+	/> -->
 
 	<CtaCardSection
 		background="var(--theme-surface-2)"
 		color="var(--theme-on-surface-2)"
 	>
-		<h2>Start Your Website Today</h2>
+		<h2>Become a Member Today!</h2>
 		<p>
-			It only takes a couple clicks to have a new, modern website for your
-			business or startup.
+			Interested in becoming a member of Meadow Walk Housing Co-operative? Click
+			here to start the application process.
 		</p>
 		<Button href="theme/get-started" customIcon
 			>Get Started <Fragment slot="icon">
