@@ -1,0 +1,103 @@
+---
+import { Container } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import { resolveUrl } from '@utils/helpers';
+import PricingTable from '@components/PricingTable.astro';
+import UnitsDetails from '@components/UnitsDetails.astro';
+import ApplicationProcess from '@components/ApplicationProcess.astro';
+---
+
+<Layout>
+	<Container>
+		<section class="aplications-section">
+			<article>
+				<div class="text">
+					<h2>How To Apply?</h2>
+					<blockquote>
+						We are looking for members who want to contribute their time and
+						talent to make their community a better place to live. Active
+						participation is mandatory.
+					</blockquote>
+					<p>
+						If you are interested in joining the Meadow Walk community, please
+						download, complete and forward the membership application form via
+						e-mail to <a href="mailto:meadowwalkmembership@gmail.com"
+							>meadowwalkmembership@gmail.com</a
+						>.
+					</p>
+					<p>
+						<a
+							class="btn"
+							href={resolveUrl('/assets/documents/application_form_2024.pdf')}
+							download
+						>
+							Download Application Form
+						</a>
+					</p>
+				</div>
+				<section>
+					<img
+						src={resolveUrl('/assets/images/app_form.webp')}
+						alt="Application Form"
+					/>
+				</section>
+			</article>
+		</section>
+		<ApplicationProcess />
+		<PricingTable />
+		<UnitsDetails />
+	</Container>
+</Layout>
+
+<style>
+	.aplications-section {
+		padding: 4rem 1rem 0 1rem;
+	}
+	.aplications-section article {
+		margin-bottom: 4rem;
+	}
+	.aplications-section h2 {
+		font-size: 2rem;
+		margin-bottom: calc(2rem * 1.5);
+	}
+	.aplications-section img {
+		margin: 2rem 0 4rem 0;
+		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.aplications-section p {
+		font-size: 1rem;
+	}
+	.aplications-section .btn {
+		width: fit-content;
+		padding: 0.36rem 0.92rem;
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--theme-primary);
+		color: var(--theme-on-primary);
+		border: none;
+		border-radius: var(--theme-button-border-radius);
+		font-weight: 500;
+		text-decoration: none;
+	}
+	.aplications-section .btn:hover {
+		background-color: var(--theme-primary-hover);
+	}
+
+	@media (min-width: 768px) {
+		.aplications-section article {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+		.text {
+			text-align: left;
+		}
+		.aplications-section .reverse .text {
+			order: 2;
+		}
+	}
+</style>

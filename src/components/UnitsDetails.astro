@@ -1,0 +1,372 @@
+---
+import { resolveUrl } from '@utils/helpers';
+---
+
+<script type="module">
+	// JavaScript to Handle Tab Switching
+	const tabLinks = document.querySelectorAll('.tab-link');
+	const tabContents = document.querySelectorAll('.tab-content');
+
+	tabLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			// Remove 'active' class from all links and contents
+			tabLinks.forEach(link => link.classList.remove('active'));
+			tabContents.forEach(content => content.classList.remove('active'));
+
+			// Add 'active' class to clicked link and corresponding content
+			link.classList.add('active');
+			const tabId = link.getAttribute('data-tab');
+			document.getElementById(tabId).classList.add('active');
+		});
+	});
+</script>
+
+<section class="tabs-section">
+	<!-- Tabs Navigation -->
+	<div class="tabs-nav">
+		<button class="tab-link active" data-tab="tab1">1 Bedroom Apartment</button>
+		<button class="tab-link" data-tab="tab2">2 Bedroom Apartment</button>
+		<button class="tab-link" data-tab="tab3">3 Bedroom Apartment</button>
+		<button class="tab-link" data-tab="tab4">Townhouse 2 Levels</button>
+		<button class="tab-link" data-tab="tab5">Townhouse 3 Levels</button>
+	</div>
+
+	<!-- Tab Contents -->
+	<div class="tab-content active" id="tab1">
+		<div class="tab-container">
+			<img
+				src={resolveUrl('/assets/images/1bedroom.gif')}
+				alt="1 Bedroom Apartment"
+				class="unit-image"
+			/>
+			<div class="unit-description">
+				<div class="unit-header">
+					<h3 class="unit-title">
+						<span class="unit-type">1 Bedroom</span> - North Facing
+					</h3>
+					<p class="unit-summary">
+						The one-bedroom apartments are well laid out and fairly generously
+						sized with a small balcony to provide enough space for a couple to
+						live comfortably.
+					</p>
+					<em>1 Bedroom Units (9 regular / 3 Wheelchair Accessible)</em>
+				</div>
+
+				<div class="unit-specifications">
+					<table class="unit-info-table">
+						<tr>
+							<th>Square Feet</th>
+							<td>626</td>
+						</tr>
+						<tr>
+							<th>Monthly Housing Charge</th>
+							<td>$827</td>
+						</tr>
+						<tr>
+							<th>Share Purchase</th>
+							<td>$2,000</td>
+						</tr>
+						<tr>
+							<th>Minimum Yearly Income to Qualify</th>
+							<td>$32,000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-content" id="tab2">
+		<div class="tab-container">
+			<img
+				src={resolveUrl('/assets/images/2bedroom.gif')}
+				alt="2 Bedroom Apartment"
+				class="unit-image"
+			/>
+			<div class="unit-description">
+				<div class="unit-header">
+					<h3 class="unit-title">
+						<span class="unit-type">2 Bedroom</span> - South Facing
+					</h3>
+					<p class="unit-summary">
+						The two-bedroom apartments are very well laid out and generously
+						sized with a largebalcony to provide enough space for a couple and a
+						child to live comfortably.
+					</p>
+					<em>2 Bedroom Units (18 regular / 3 Wheelchair Accessible)</em>
+				</div>
+
+				<div class="unit-specifications">
+					<table class="unit-info-table">
+						<tr>
+							<th>Square Feet</th>
+							<td>860</td>
+						</tr>
+						<tr>
+							<th>Monthly Housing Charge</th>
+							<td>$1,052</td>
+						</tr>
+						<tr>
+							<th>Share Purchase</th>
+							<td>$2,400</td>
+						</tr>
+						<tr>
+							<th>Minimum Yearly Income to Qualify</th>
+							<td>$42,000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-content" id="tab3">
+		<div class="tab-container">
+			<img
+				src={resolveUrl('/assets/images/3bedroom.gif')}
+				alt="3 Bedroom Apartment"
+				class="unit-image"
+			/>
+			<div class="unit-description">
+				<div class="unit-header">
+					<h3 class="unit-title">
+						<span class="unit-type">3 Bedroom</span> - North Facing
+					</h3>
+					<p class="unit-summary">
+						The three-bedroom apartments are very well laid out for those with
+						mobility needs and generously sized with a large balcony to provide
+						enough space for a couple with childrenor a caregiver to live
+						comfortably.
+					</p>
+					<em>3 Bedroom Units (3 Wheelchair Accessible)</em>
+				</div>
+
+				<div class="unit-specifications">
+					<table class="unit-info-table">
+						<tr>
+							<th>Square Feet</th>
+							<td>1100</td>
+						</tr>
+						<tr>
+							<th>Monthly Housing Charge</th>
+							<td>$1,166</td>
+						</tr>
+						<tr>
+							<th>Share Purchase</th>
+							<td>$3,000</td>
+						</tr>
+						<tr>
+							<th>Minimum Yearly Income to Qualify</th>
+							<td>$46,000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-content" id="tab4">
+		<div class="tab-container">
+			<img
+				src={resolveUrl('/assets/images/3bed2levels.gif')}
+				alt="Townhouse 2 Levels"
+				class="unit-image"
+			/>
+			<div class="unit-description">
+				<div class="unit-header">
+					<h3 class="unit-title">
+						<span class="unit-type">Townhouses</span> - West or East Facing
+					</h3>
+					<p class="unit-summary">
+						Two styles of town-homes are available both three bedroom units,
+						either on two floors or three. The two storey units come with a
+						balcony while the three storey units have a small back garden patio.
+					</p>
+				</div>
+
+				<div class="unit-specifications">
+					<table class="unit-info-table">
+						<tr>
+							<th>Square Feet</th>
+							<td>1100</td>
+						</tr>
+						<tr>
+							<th>Monthly Housing Charge</th>
+							<td>$1,261</td>
+						</tr>
+						<tr>
+							<th>Share Purchase</th>
+							<td>$3,000</td>
+						</tr>
+						<tr>
+							<th>Minimum Yearly Income to Qualify</th>
+							<td>$51,000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-content" id="tab5">
+		<div class="tab-container">
+			<img
+				src={resolveUrl('/assets/images/3bed3levels.gif')}
+				alt="Townhouse 3 Levels"
+				class="unit-image"
+			/>
+			<div class="unit-description">
+				<div class="unit-header">
+					<h3 class="unit-title">
+						<span class="unit-type">Townhouses</span> - West or East Facing
+					</h3>
+					<p class="unit-summary">
+						Two styles of town-homes are available both three bedroom units,
+						either on two floors or three. The two storey units come with a
+						balcony while the three storey units have a small back garden patio.
+					</p>
+				</div>
+
+				<div class="unit-specifications">
+					<table class="unit-info-table">
+						<tr>
+							<th>Square Feet</th>
+							<td>1100</td>
+						</tr>
+						<tr>
+							<th>Monthly Housing Charge</th>
+							<td>$1,261</td>
+						</tr>
+						<tr>
+							<th>Share Purchase</th>
+							<td>$3,000</td>
+						</tr>
+						<tr>
+							<th>Minimum Yearly Income to Qualify</th>
+							<td>$51,000</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Accordion Section Styles */
+	.tabs-section {
+		padding: 2rem 0;
+	}
+
+	.tabs-section h2 {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: calc(2rem * 1.5);
+	}
+
+	/* Tabs Navigation Styles */
+	.tabs-nav {
+		display: flex;
+		flex-wrap: wrap;
+
+		margin-bottom: 1rem;
+	}
+
+	.tab-link {
+		background-color: var(--theme-primary);
+		color: var(--theme-on-primary);
+		cursor: pointer;
+		padding: 0.5rem 1rem;
+		border: none;
+		margin-right: 0.5rem;
+		margin-bottom: 0.5rem;
+
+		border-radius: var(--theme-shape-radius);
+		transition: background-color 0.3s;
+	}
+
+	.tab-link:hover {
+		background-color: var(--theme-primary-hover);
+	}
+
+	.tab-link.active {
+		background-color: #3a6060;
+	}
+
+	/* Tab Content Styles */
+	/* Initial state for hidden tab contents */
+	.tab-content {
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.5s ease,
+			visibility 0.5s ease;
+		height: 0;
+		overflow: hidden;
+	}
+
+	/* Visible tab content with smooth transition */
+	.tab-content.active {
+		opacity: 1;
+		visibility: visible;
+		height: auto;
+		transition:
+			opacity 0.5s ease,
+			visibility 0.5s ease;
+	}
+
+	.unit-image {
+		max-width: 300px;
+		height: auto;
+		margin-bottom: 1rem;
+		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.unit-description {
+		padding: 0 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.unit-header {
+		margin-bottom: 1rem;
+	}
+
+	.unit-specifications {
+		margin-top: 1rem;
+	}
+
+	.unit-info-table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.unit-info-table th,
+	.unit-info-table td {
+		padding: 0.5rem;
+		border-bottom: 1px solid #ddd;
+		text-align: left;
+	}
+
+	.unit-info-table th {
+		width: 60%;
+		color: #666;
+	}
+
+	.unit-info-table td {
+		font-weight: bold;
+	}
+
+	/* Responsive adjustments */
+	@media (min-width: 768px) {
+		.tab-container {
+			display: grid;
+			grid-template-columns: 1fr 3fr;
+			gap: 1rem;
+		}
+
+		.unit-description h3 {
+			font-size: 1.5em;
+		}
+	}
+</style>

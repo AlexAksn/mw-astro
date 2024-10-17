@@ -42,7 +42,7 @@ import { resolveUrl } from '@utils/helpers';
 				charities.
 			</p>
 		</div>
-		<Button slot="column-1-cta">Learn More</Button>
+		<Button slot="column-1-cta" href={resolveUrl('/about')}>Learn More</Button>
 		<div slot="column-2-body">
 			<h2>Our Community</h2>
 			<p>
@@ -52,23 +52,19 @@ import { resolveUrl } from '@utils/helpers';
 				apartments range from 1 to 3 bedrooms.
 			</p>
 		</div>
-		<Button slot="column-2-cta">Learn More</Button>
+		<Button slot="column-2-cta" href={resolveUrl('/about')}>Learn More</Button>
 		<div slot="column-3-body">
 			<h2>Applications</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				We are looking for members who want to contribute their time and talent
+				to make their community a better place to live. Active participation is
+				mandatory.
 			</p>
 		</div>
-		<Button slot="column-3-cta">Learn More</Button>
+		<Button slot="column-3-cta" href={resolveUrl('/applications')}
+			>Learn More</Button
+		>
 	</ThreeColumnTextSection>
-
-	<!-- <YouTubeEmbedSection
-		url="https://www.youtube.com/watch?v=kWfbLPmOeTs"
-		rounded
-	/> -->
 
 	<CtaCardSection
 		background="var(--theme-surface-2)"
@@ -79,7 +75,7 @@ import { resolveUrl } from '@utils/helpers';
 			Interested in becoming a member of Meadow Walk Housing Co-operative? Click
 			here to start the application process.
 		</p>
-		<Button href="theme/get-started" customIcon
+		<Button href={resolveUrl('/applications')} customIcon
 			>Get Started <Fragment slot="icon">
 				<Icon name="ic:baseline-chevron-right" />
 			</Fragment></Button

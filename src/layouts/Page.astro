@@ -4,20 +4,21 @@ import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
-import { footerLists, footerSocials } from '../config/footer';
+import { footerLists } from '../config/footer';
 
 export interface Props {
 	seo?: BaseHeadProps;
 }
 
 import { nav } from '../config/nav.js';
+import { resolveUrl } from '@utils/helpers';
 
 const { seo } = Astro.props as Props;
 ---
 
 <Layout seo={seo}>
 	<Header rightMenu navData={nav} slot="header">
-		<Button slot="action-item" href="/theme/get-started">Apply</Button>
+		<Button slot="action-item" href={resolveUrl('/applications')}>Apply</Button>
 	</Header>
 	<div id="page">
 		<slot />

@@ -1,0 +1,112 @@
+---
+const tableData = [
+	{
+		unit: '1 Bedroom Apt',
+		housingCharge: '$827',
+		shares: '$2000',
+		incomeRequired: '$32,000',
+	},
+	{
+		unit: '2 Bedroom Apt',
+		housingCharge: '$1,052',
+		shares: '$2400',
+		incomeRequired: '$42,000',
+	},
+	{
+		unit: '3 Bedroom Apt',
+		housingCharge: '$1,166',
+		shares: '$3000',
+		incomeRequired: '$46,000',
+	},
+	{
+		unit: '3 Bedroom Townhouse',
+		housingCharge: '$1,261',
+		shares: '$3000',
+		incomeRequired: '$51,000',
+	},
+];
+
+const tFootText = '(All 3 Bedroom apartments are wheelchair accessible units)';
+---
+
+<section class="pricing">
+	<h2>2024-2025 Housing Information</h2>
+	<table class="pricing-table">
+		<thead>
+			<tr>
+				<th>Unit</th>
+				<th>Housing Charge</th>
+				<th>Shares</th>
+				<th>Income Required</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				tableData.map(({ unit, housingCharge, shares, incomeRequired }) => (
+					<tr>
+						<td>{unit}</td>
+						<td>{housingCharge}</td>
+						<td>{shares}</td>
+						<td>{incomeRequired}</td>
+					</tr>
+				))
+			}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4">{tFootText}</td>
+			</tr>
+		</tfoot>
+	</table>
+</section>
+
+<style>
+	/* Mobile-first styles */
+	.pricing {
+		padding: 2rem 0;
+	}
+
+	.pricing h2 {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: calc(2rem * 1.5);
+	}
+
+	.pricing-table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+	}
+
+	.pricing-table th,
+	.pricing-table td {
+		padding: 0.5rem;
+		border-bottom: 1px solid var(--theme-surface-1);
+	}
+
+	.pricing-table th {
+		background-color: var(--theme-surface-2);
+		color: var(--theme-on-surface-2);
+	}
+
+	.pricing-table tbody tr:hover {
+		background-color: #f1f1f1;
+	}
+
+	.pricing-table tfoot td {
+		text-align: center;
+		font-style: italic;
+		padding: 1rem;
+	}
+
+	/* Larger screens (tablets and up) */
+	@media (min-width: 768px) {
+		.pricing {
+			padding: 4rem 0;
+		}
+
+		.pricing h2 {
+			font-size: 2.5rem;
+		}
+	}
+</style>
