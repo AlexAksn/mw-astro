@@ -1,5 +1,5 @@
 ---
-import { Container } from '@components/odyssey-theme';
+import { AnnouncementBar, Container } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import { resolveUrl } from '@utils/helpers';
 import PricingTable from '@components/PricingTable.astro';
@@ -7,6 +7,10 @@ import UnitsDetails from '@components/UnitsDetails.astro';
 import ApplicationProcess from '@components/ApplicationProcess.astro';
 ---
 
+<AnnouncementBar
+	text="Currently, we don't accept applications for townhouses"
+	slot="announcement-bar"
+/>
 <Layout>
 	<Container>
 		<section class="aplications-section">
@@ -24,6 +28,11 @@ import ApplicationProcess from '@components/ApplicationProcess.astro';
 						e-mail to <a href="mailto:meadowwalkmembership@gmail.com"
 							>meadowwalkmembership@gmail.com</a
 						>.
+					</p>
+					<p>
+						<strong
+							>Currently, we don't accept applications for townhouses</strong
+						>
 					</p>
 					<p>
 						<a

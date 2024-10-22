@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+---
+
+<Layout>
+	<Container>
+		<section class="contacts-section">
+			<div class="info">
+				<h2>Contact Us</h2>
+				<p>
+					General Inguries: <a href="mailto:meadow.walk.mngr@gmail.com"
+						>meadow.walk.mngr@gmail.com</a
+					>
+				</p>
+				<p>
+					Applications: <a href="mailto:meadowwalkmembership@gmail.com"
+						>meadowwalkmembership@gmail.com</a
+					>
+				</p>
+				<p>Address: 7460 Moffatt Road, Richmond, BC, V6Y 3S1</p>
+			</div>
+			<div class="map">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.126647132752!2d-123.1409976240204!3d49.16175917854917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54860a4a20400777%3A0x33360f87bb0f5c2e!2s7460%20Moffatt%20Rd%2C%20Richmond%2C%20BC%20V6Y%203S1%2C%20Canada!5e0!3m2!1sen!2sus!4v1696945240652!5m2!1sen!2sus"
+					width="300"
+					height="200"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				>
+				</iframe>
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.contacts-section {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		padding: 4rem 1rem 1rem 1rem;
+		min-height: 90vh;
+	}
+	.contacts-section h2 {
+		margin-bottom: 2rem;
+	}
+
+	.info {
+		text-align: center;
+	}
+
+	.map {
+		text-align: center;
+	}
+
+	.map iframe {
+		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	@media (min-width: 768px) {
+		.contacts-section {
+			grid-template-columns: 2fr 1fr;
+		}
+		.info,
+		.map {
+			text-align: left;
+		}
+
+		.map iframe {
+			width: 500px;
+			height: 300px;
+		}
+	}
+</style>

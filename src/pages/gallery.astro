@@ -1,0 +1,260 @@
+---
+import Container from '@components/core/Container.astro';
+import Layout from '../layouts/Page.astro';
+import { resolveUrl } from '@utils/helpers';
+import CtaCardSection from '@components/sections/CtaCardSection.astro';
+
+const images = [
+	{
+		src: '/assets/images/5.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/1.jpg',
+		title: 'Gallery Image 1',
+	},
+	{
+		src: '/assets/images/7.jpg',
+		title: 'Gallery Image 2',
+	},
+	{
+		src: '/assets/images/3.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/4.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/6.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/2.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/8.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/9.jpg',
+		title: 'Gallery Image 3',
+	},
+];
+---
+
+<Layout>
+	<Container>
+		<h2>Our Community Gallery</h2>
+
+		<div class="gallery">
+			{
+				images.map(image => (
+					<img
+						src={resolveUrl(image.src)}
+						alt={image.title}
+						width="400px"
+						class="gallery-image"
+					/>
+				))
+			}
+		</div>
+		<!-- Lightbox Modal -->
+		<div id="lightbox" class="lightbox">
+			<span class="close">&times;</span>
+			<div class="lightbox-content">
+				<img id="lightbox-image" class="lightbox-image" />
+				<a class="prev">&#10094;</a>
+				<a class="next">&#10095;</a>
+			</div>
+		</div>
+	</Container>
+</Layout>
+
+<script type="module">
+	let currentImageIndex = 0;
+	let images = document.querySelectorAll('.gallery-image');
+
+	// add on click event listener to each image
+	images.forEach((image, index) => {
+		image.addEventListener('click', () => {
+			openLightbox();
+			showImage(index + 1);
+		});
+	});
+	// add event listener to close lightbox when clicking outside the image
+	document.getElementById('lightbox').addEventListener('click', event => {
+		if (event.target.id === 'lightbox') {
+			closeLightbox();
+		}
+	});
+	// add event listener to close lightbox when pressing the escape key
+	document.addEventListener('keydown', event => {
+		if (event.key === 'Escape') {
+			closeLightbox();
+		}
+	});
+
+	// add event listener to change image when pressing the left or right arrow key
+	document.addEventListener('keydown', event => {
+		if (event.key === 'ArrowLeft') {
+			changeImage(-1);
+		} else if (event.key === 'ArrowRight') {
+			changeImage(1);
+		}
+	});
+
+	// add event listener to close lightbox when clicking the close button
+	document.querySelector('.close').addEventListener('click', closeLightbox);
+	// add event listener to change image when clicking the previous or next button
+	document
+		.querySelector('.prev')
+		.addEventListener('click', () => changeImage(-1));
+	document
+		.querySelector('.next')
+		.addEventListener('click', () => changeImage(1));
+
+	function openLightbox() {
+		document.getElementById('lightbox').style.display = 'block';
+	}
+
+	function closeLightbox() {
+		document.getElementById('lightbox').style.display = 'none';
+	}
+
+	function showImage(index) {
+		currentImageIndex = index;
+		let imageSrc = images[currentImageIndex - 1].src;
+		document.getElementById('lightbox-image').src = imageSrc;
+	}
+
+	function changeImage(step) {
+		currentImageIndex += step;
+
+		if (currentImageIndex > images.length) {
+			currentImageIndex = 1;
+		} else if (currentImageIndex < 1) {
+			currentImageIndex = images.length;
+		}
+
+		showImage(currentImageIndex);
+	}
+</script>
+
+<style>
+	h2 {
+		text-align: left;
+		margin: 4rem 0 4rem 0;
+	}
+
+	.gallery {
+		margin: auto 0; /* Center the gallery */
+		columns: 3 400px; /* 3 columns with a minimum width of 400px */
+		column-gap: 1rem; /* Adds space between gallery items */
+		margin-bottom: 4rem;
+		padding: 0 1rem;
+	}
+
+	.gallery-image {
+		width: 100%;
+		display: block;
+		margin-bottom: 1rem;
+		border-radius: var(--theme-shape-radius);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+		transition: transform 0.2s ease-in-out;
+	}
+
+	.gallery-image:hover {
+		transform: scale(1.02, 1.02);
+		-webkit-transform: scale(1.02, 1.02);
+	}
+
+	/* Lightbox Modal */
+	.lightbox {
+		display: none;
+		position: fixed;
+		z-index: 100000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+	}
+
+	.lightbox-content {
+		position: relative;
+		margin: auto;
+		top: 10%;
+		width: 80%;
+		max-width: 1000px;
+	}
+
+	.lightbox-image {
+		max-width: 100%; /* Image can scale down to fit screen width */
+		max-height: 80vh; /* Image can scale down to fit screen height */
+		width: auto; /* Maintain natural width */
+		height: auto; /* Maintain natural height */
+		display: block; /* Center the image */
+		margin: 0 auto; /* Horizontally center */
+		border-radius: 8px;
+	}
+
+	.close {
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		color: #fff;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	.prev,
+	.next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -22px;
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+		user-select: none;
+	}
+
+	.prev {
+		left: 0;
+	}
+
+	.next {
+		right: 0;
+	}
+
+	/* Mobile-specific styles */
+	@media (max-width: 768px) {
+		.lightbox-content {
+			top: 50%; /* Vertically center on mobile */
+			transform: translateY(-50%); /* Ensure content is fully centered */
+			width: 90%; /* Use more screen width for better display on mobile */
+		}
+
+		.lightbox-image {
+			max-width: 100%; /* Ensure the image takes up the full width */
+			max-height: 70vh; /* Adjust to fit better on smaller screens */
+		}
+
+		.close {
+			top: 10px;
+			right: 20px;
+			font-size: 30px;
+		}
+
+		.prev,
+		.next {
+			font-size: 20px;
+		}
+	}
+</style>

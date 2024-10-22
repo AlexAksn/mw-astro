@@ -9,6 +9,7 @@ import {
 import Layout from '../layouts/Page.astro';
 import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
 import { resolveUrl } from '@utils/helpers';
+import Gallery from '@components/Gallery.astro';
 ---
 
 <Layout>
@@ -89,5 +90,8 @@ import { resolveUrl } from '@utils/helpers';
 			rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
 			rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
 			rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+	}
+	h1 {
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 	}
 </style>

@@ -11,9 +11,12 @@ export const nav = [
 		title: 'Applications',
 		slug: '/applications',
 	},
-
+	{
+		title: 'Gallery',
+		slug: '/gallery',
+	},
 	{
 		title: 'Contact',
-		slug: '/#footer',
+		slug: '/contact',
 	},
 ];

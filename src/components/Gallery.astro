@@ -1,0 +1,245 @@
+---
+import { resolveUrl } from '@utils/helpers';
+import Container from './core/Container.astro';
+
+const images = [
+	{
+		src: '/assets/images/1.jpg',
+		title: 'Gallery Image 1',
+	},
+	{
+		src: '/assets/images/2.jpg',
+		title: 'Gallery Image 2',
+	},
+	{
+		src: '/assets/images/3.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/4.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/5.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/6.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/7.jpg',
+		title: 'Gallery Image 3',
+	},
+	{
+		src: '/assets/images/8.jpg',
+		title: 'Gallery Image 3',
+	},
+];
+---
+
+<Container>
+	<div class="gallery">
+		{
+			images.map((image, index) => (
+				<div class="gallery-item">
+					<img
+						src={resolveUrl(image.src)}
+						alt={image.title}
+						class="gallery-image"
+					/>
+				</div>
+			))
+		}
+	</div>
+</Container>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+	<span class="close">&times;</span>
+	<div class="lightbox-content">
+		<img id="lightbox-image" class="lightbox-image" />
+		<a class="prev">&#10094;</a>
+		<a class="next">&#10095;</a>
+	</div>
+</div>
+
+<script type="module">
+	let currentImageIndex = 0;
+	let images = document.querySelectorAll('.gallery-image');
+
+	// add on click event listener to each image
+	images.forEach((image, index) => {
+		image.addEventListener('click', () => {
+			openLightbox();
+			showImage(index + 1);
+		});
+	});
+	// add event listener to close lightbox when clicking outside the image
+	document.getElementById('lightbox').addEventListener('click', event => {
+		if (event.target.id === 'lightbox') {
+			closeLightbox();
+		}
+	});
+	// add event listener to close lightbox when pressing the escape key
+	document.addEventListener('keydown', event => {
+		if (event.key === 'Escape') {
+			closeLightbox();
+		}
+	});
+
+	// add event listener to change image when pressing the left or right arrow key
+	document.addEventListener('keydown', event => {
+		if (event.key === 'ArrowLeft') {
+			changeImage(-1);
+		} else if (event.key === 'ArrowRight') {
+			changeImage(1);
+		}
+	});
+
+	// add event listener to close lightbox when clicking the close button
+	document.querySelector('.close').addEventListener('click', closeLightbox);
+	// add event listener to change image when clicking the previous or next button
+	document
+		.querySelector('.prev')
+		.addEventListener('click', () => changeImage(-1));
+	document
+		.querySelector('.next')
+		.addEventListener('click', () => changeImage(1));
+
+	function openLightbox() {
+		document.getElementById('lightbox').style.display = 'block';
+	}
+
+	function closeLightbox() {
+		document.getElementById('lightbox').style.display = 'none';
+	}
+
+	function showImage(index) {
+		currentImageIndex = index;
+		let imageSrc = images[currentImageIndex - 1].src;
+		document.getElementById('lightbox-image').src = imageSrc;
+	}
+
+	function changeImage(step) {
+		currentImageIndex += step;
+
+		if (currentImageIndex > images.length) {
+			currentImageIndex = 1;
+		} else if (currentImageIndex < 1) {
+			currentImageIndex = images.length;
+		}
+
+		showImage(currentImageIndex);
+	}
+</script>
+
+<style>
+	/* General Gallery Styles */
+	.gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 15px; /* Adds space between gallery items */
+	}
+
+	.gallery-item {
+		flex: 1 1 calc(25% - 30px); /* 4 items per row */
+		max-width: calc(25% - 30px);
+		overflow: hidden; /* Ensures images that overflow are clipped */
+		aspect-ratio: 1 / 1; /* Ensures square containers for each item */
+		border-radius: 8px;
+	}
+
+	.gallery-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Ensures images fill the space without distortion */
+		object-position: center; /* Centers the image inside the container */
+		cursor: pointer;
+		transition: transform 0.2s ease-in-out;
+	}
+
+	.gallery-image:hover {
+		transform: scale(1.05);
+	}
+
+	/* Responsive Adjustments */
+	@media (max-width: 1024px) {
+		.gallery-item {
+			flex: 1 1 calc(33.33% - 20px); /* 3 items per row on medium screens */
+			max-width: calc(33.33% - 20px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.gallery-item {
+			flex: 1 1 calc(50% - 15px); /* 2 items per row on small screens */
+			max-width: calc(50% - 15px);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.gallery-item {
+			flex: 1 1 100%; /* 1 item per row on mobile */
+			max-width: 100%;
+		}
+	}
+
+	/* Lightbox Modal */
+	.lightbox {
+		display: none;
+		position: fixed;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+	}
+
+	.lightbox-content {
+		position: relative;
+		margin: auto;
+		top: 10%;
+		width: 80%;
+		max-width: 1000px;
+	}
+
+	.lightbox-image {
+		width: 100%;
+		border-radius: 8px;
+	}
+
+	.close {
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		color: #fff;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	.prev,
+	.next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -22px;
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+		user-select: none;
+	}
+
+	.prev {
+		left: 0;
+	}
+
+	.next {
+		right: 0;
+	}
+</style>

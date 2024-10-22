@@ -5,33 +5,10 @@ const { background, color, copyrightName } = Astro.props;
 ---
 
 <footer
-	id="footer"
+	id="contact"
 	style={background && `--footer-bg:${background}; --footer-color:${color}`}
 >
 	<Container>
-		<div class="footer-container">
-			<div class="footer-info">
-				<h3>Contact Us</h3>
-				<p>
-					Email: <a href="mailto:meadow.walk.mngr@gmail.com"
-						>meadow.walk.mngr@gmail.com</a
-					>
-				</p>
-				<p>Address: 7460 Moffat Road, Richmond, BC, V6Y 3S1</p>
-			</div>
-			<div class="footer-map">
-				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.126647132752!2d-123.1409976240204!3d49.16175917854917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54860a4a20400777%3A0x33360f87bb0f5c2e!2s7460%20Moffatt%20Rd%2C%20Richmond%2C%20BC%20V6Y%203S1%2C%20Canada!5e0!3m2!1sen!2sus!4v1696945240652!5m2!1sen!2sus"
-					width="300"
-					height="200"
-					style="border:0;"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				>
-				</iframe>
-			</div>
-		</div>
 		<div class="footer-bottom">
 			<p>Copyright &copy; {new Date().getFullYear()} {copyrightName}</p>
 		</div>
@@ -42,57 +19,18 @@ const { background, color, copyrightName } = Astro.props;
 	footer {
 		--footer-bg: var(--theme-primary);
 		--footer-color: var(--theme-on-primary);
-		min-height: 40vh;
 		background-color: var(--footer-bg);
 		color: var(--footer-color);
 		border-top-left-radius: var(--theme-shape-radius);
 		border-top-right-radius: var(--theme-shape-radius);
 	}
 
-	.footer-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		padding: 2rem 0;
-	}
-
-	.footer-info {
-		width: 100%;
-		padding: 1rem;
-	}
-
-	.footer-map {
-		width: 100%;
-	}
-
-	.footer-map iframe {
-		width: 100%;
-		height: 200px;
-		border-radius: var(--theme-shape-radius);
+	footer p {
+		margin: 0;
 	}
 
 	.footer-bottom {
 		padding: 1rem 0;
 		text-align: center;
-	}
-
-	/* Larger screens (tablets and up) */
-	@media (min-width: 768px) {
-		.footer-container {
-			flex-direction: row;
-			justify-content: space-between;
-			text-align: left;
-			margin: 0 auto;
-		}
-
-		.footer-info,
-		.footer-map {
-			width: 45%;
-		}
-
-		.footer-map iframe {
-			height: 300px;
-		}
 	}
 </style>
