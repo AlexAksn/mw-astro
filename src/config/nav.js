@@ -15,4 +15,5 @@ export const nav = [
 		title: 'Contact',
 		slug: '/contact',
 	},
+	
 ];

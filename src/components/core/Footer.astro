@@ -1,7 +1,7 @@
 ---
 import Container from '../core/Container.astro';
 
-const { background, color, copyrightName } = Astro.props;
+const { background, color } = Astro.props;
 ---
 
 <footer
@@ -10,7 +10,10 @@ const { background, color, copyrightName } = Astro.props;
 >
 	<Container>
 		<div class="footer-bottom">
-			<p>Copyright &copy; {new Date().getFullYear()} {copyrightName}</p>
+			<p>
+				Copyright &copy; {new Date().getFullYear()} Meadow Walk Housing Co-op. All
+				Rights Reserved
+			</p>
 		</div>
 	</Container>
 </footer>
